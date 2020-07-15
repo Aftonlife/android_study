@@ -1,0 +1,24 @@
+{
+    "data": {
+        "admin": false,
+        "chapterTops": [],
+        "collectIds": [],
+        "email": "",
+        "icon": "",
+        "id": 67599,
+        "nickname": "afton",
+        "password": "",
+        "publicName": "afton",
+        "token": "",
+        "type": 0,
+        "username": "afton"
+    },
+    "errorCode": 0,
+    "errorMsg": ""
+}
+
+{
+    "data": null,
+    "errorCode": -1,
+    "errorMsg": "账号密码不匹配！"
+}

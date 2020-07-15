@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/ybdj_dp_2" android:color="#28000000"/>
+            <corners android:bottomLeftRadius="@dimen/ybdj_dp_4"
+                android:bottomRightRadius="@dimen/ybdj_dp_4"
+                android:topLeftRadius="@dimen/ybdj_dp_6"
+                android:topRightRadius="@dimen/ybdj_dp_6"/>
+        </shape>
+    </item>
+    <item
+        android:bottom="3dp"
+        android:left="1.5dp"
+        android:right="1.5dp"
+        android:top="0.5dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/ybdj_dp_4" />
+            <stroke android:width="@dimen/ybdj_dp_0_5" android:color="#42D8D8D8"/>
+        </shape>
+    </item>
+
+    <item
+        android:bottom="3.5dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="1dp">
+        <shape>
+            <corners android:radius="@dimen/ybdj_dp_4" />
+            <stroke android:width="@dimen/ybdj_dp_0_5" android:color="#44000000"/>
+            <gradient
+                android:centerColor="#05FAF9F9"
+                android:endColor="#42D8D8D8"
+                android:startColor="#1FEAEAEA"
+                android:angle="90"/>
+        </shape>
+    </item>
+</layer-list>
