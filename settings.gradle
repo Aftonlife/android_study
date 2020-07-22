@@ -1,3 +1,6 @@
+include ':ijkplayer-exo'
+include ':ijkplayer-example'
+include ':ijkplayer-java'
 rootProject.name='study_notes'
 include ':app'
 include ':common'

@@ -64,8 +64,8 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 
     //navigation
-    implementation "android.arch.navigation:navigation-fragment:$nav_version"
-    implementation "android.arch.navigation:navigation-ui:$nav_version"
+    implementation 'androidx.navigation:navigation-fragment:2.0.0-rc02'
+    implementation 'androidx.navigation:navigation-ui:2.0.0-rc02'
 
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -94,6 +94,10 @@ dependencies {
     implementation 'com.google.android:flexbox:2.0.1'
 
     implementation project(":common")
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation project(':ijkplayer-example')
+    implementation project(':ijkplayer-java')
 
 }
 repositories {

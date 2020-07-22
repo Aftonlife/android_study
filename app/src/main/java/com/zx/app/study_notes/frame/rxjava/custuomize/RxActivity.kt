@@ -16,11 +16,11 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.zx.app.study_notes.CommonUtil
-import com.zx.app.study_notes.MQTTService
 import com.zx.app.study_notes.R
+import com.zx.app.study_notes.view.fish.FishDrawable
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
+import kotlinx.android.synthetic.main.layout_rxactivity.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -34,6 +34,7 @@ class RxActivity : AppCompatActivity() {
     private var odds1: TextView? = null;
     private var odds2: TextView? = null;
     private val disposable: Disposable? = null
+    private var isPause = false
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("CheckResult")
@@ -41,11 +42,17 @@ class RxActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_rxactivity)
 //        checkPermission()
+        initLiveVideo()
+
         btn = findViewById(R.id.button)
         decline = findViewById(R.id.iv_decline)
         rise = findViewById(R.id.iv_rise)
         odds1 = findViewById(R.id.tv_odds_1)
         odds2 = findViewById(R.id.tv_odds_2)
+
+
+        iv_fish.setImageDrawable(FishDrawable())
+
         window.statusBarColor = Color.TRANSPARENT
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         RxView.click(btn)
@@ -56,10 +63,17 @@ class RxActivity : AppCompatActivity() {
                         val intent = Intent("monkey.test")
                         intent.setPackage("com.zx.app.study_notes")
                         intent.addCategory("android.intent.category.MONKEY.TEST")
-                        startActivity(intent);
+//                        startActivity(intent);
 //                        MQTTService.startService(this@RxActivity)
 //                        CommonUtil.flicker(this,decline, odds1, 0)
 //                        CommonUtil.flicker(this,rise, odds2, 1)
+                        //暂停
+                        isPause = !isPause
+                        if (isPause) {
+                            player.pause()
+                        } else {
+                            player.start()
+                        }
                     }
                 }
     }
@@ -71,5 +85,10 @@ class RxActivity : AppCompatActivity() {
                     arrayOf(Manifest.permission.READ_PHONE_STATE), 0)
         }
 
+    }
+
+    fun initLiveVideo() {
+        player.setVideoPath("http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8")
+        player.setOnPreparedListener { player.start() }
     }
 }
